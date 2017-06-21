@@ -12,10 +12,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Current Day Weather Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Forcast" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CurrentDayWeatherController" customModule="Forcast" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -167,6 +167,15 @@
                             <constraint firstItem="wCv-Tt-JF5" firstAttribute="leading" secondItem="Ay6-2L-wrQ" secondAttribute="leading" id="w53-Jg-PIj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cityNameLabel" destination="NAh-ux-rLu" id="dEj-Kc-xKN"/>
+                        <outlet property="dayLabel" destination="5QW-5K-7Qi" id="FQw-uu-6Qo"/>
+                        <outlet property="highLowLabel" destination="Ay6-2L-wrQ" id="pyO-oQ-ig1"/>
+                        <outlet property="humidityLabel" destination="rqm-dC-i51" id="pou-h6-Vdk"/>
+                        <outlet property="pressureLabel" destination="xO8-MV-xq0" id="gxG-Ke-yQJ"/>
+                        <outlet property="temperatureLabel" destination="wCv-Tt-JF5" id="yas-eE-pf5"/>
+                        <outlet property="weatherDescriptionLabel" destination="2v3-HA-kHp" id="FAv-I6-rkK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -181,7 +190,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.98028594260000002" green="0.9804533124" blue="0.98027533290000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="yei-JX-0ko" customClass="ForecastWeatherCell" customModule="Forcast" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="60" id="yei-JX-0ko" customClass="ForecastWeatherCell" customModule="Forcast" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yei-JX-0ko" id="0Ki-gA-BnE">
@@ -245,6 +254,11 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.98028594260000002" green="0.9804533124" blue="0.98027533290000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="dateLabel" destination="Ogu-OU-gY6" id="nOU-Oe-fjk"/>
+                                    <outlet property="highLowLabel" destination="nrt-ue-d49" id="ROF-eh-uak"/>
+                                    <outlet property="temperatureLabel" destination="DiU-JF-qNR" id="jwA-3N-4rW"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

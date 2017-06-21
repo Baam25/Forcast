@@ -9,7 +9,21 @@
 import UIKit
 
 class CurrentDayWeatherController: UIViewController {
+    
+    @IBOutlet weak var cityNameLabel: UILabel!
+    
+    @IBOutlet weak var dayLabel: UILabel!
+    
+    @IBOutlet weak var temperatureLabel: UILabel!
+    
+    @IBOutlet weak var highLowLabel: UILabel!
 
+    @IBOutlet weak var weatherDescriptionLabel: UILabel!
+    
+    @IBOutlet weak var humidityLabel: UILabel!
+    
+    @IBOutlet weak var pressureLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
