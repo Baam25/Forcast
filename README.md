@@ -1,18 +1,17 @@
 # Forcast
 
-#App 
 Forcast
 
-#Description
+Description
 
 Check out the weather for a city and also check the temperature for the next 7 days.
 
-#Requirements
+Requirements
 
 Xcode 8 and iOS 10.3
 Cocopods installed in system
 
-#How to run
+How to run
 
 1.Clone the project from the GitHub url.
 2.Install cocoapods. Make sure you have cocoapods 1.1 and greater.
