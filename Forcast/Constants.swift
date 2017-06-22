@@ -7,3 +7,22 @@
 //
 
 import Foundation
+
+let ApiKey = "a761e33f55472adc699fdaafb87c4dd8"
+
+typealias ResultCompletionHandler = (ResultCompletion)->Void
+typealias ResultCompletion = (request:URLRequest?, response:URLResponse?, value:Any?, error:Error?)
+
+enum httpMethod {
+    case get
+    case post
+    
+    var toString:String{
+        return "\(self)"
+    }
+    var description:String {
+        return self.toString.uppercased()
+    }
+}
+
+let baseURL = "http://api.openweathermap.org/data/2.5"

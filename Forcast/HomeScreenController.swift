@@ -11,10 +11,11 @@ import UIKit
 class HomeScreenController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
+    let httpManager = HTTPManager.defaultManager
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        fetchTodaysWeather()
         // Do any additional setup after loading the view.
     }
 
@@ -32,6 +33,9 @@ class HomeScreenController: UIViewController {
     @IBAction func shareAction(_ sender: UIBarButtonItem) {
     }
     
+    func fetchTodaysWeather() {
+        //httpManager.fetchTodaysWeather(with: "/weather", method: .get, city: "Mumbai", country: "IN")
+    }
     /*
     // MARK: - Navigation
 
