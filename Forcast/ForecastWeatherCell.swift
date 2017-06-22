@@ -26,5 +26,12 @@ class ForecastWeatherCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func configureCell(city:CityViewModel) {
+        
+        dateLabel.text = city.weatherView.dateLabel
+        temperatureLabel.text = city.weatherView.temperatureViewModel.temperature_Label
+        highLowLabel.text = city.weatherView.temperatureViewModel.highLowLabel
+    }
 
 }

@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Forcast/CurrentDayWeatherController.swift"
-            timestampString = "519808345.403886"
+            filePath = "Forcast/HomeScreenController.swift"
+            timestampString = "519828105.140389"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "reloadView(wCity:)"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "toggleWeather(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,45 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Forcast/HttpManager.swift"
-            timestampString = "519808680.48871"
+            filePath = "Forcast/HomeScreenController.swift"
+            timestampString = "519828105.140389"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "buildWeatherModel(weather:temperature:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Forcast/HttpManager.swift"
-            timestampString = "519808680.48871"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "buildWeatherModel(weather:temperature:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Forcast/HttpManager.swift"
-            timestampString = "519808680.48871"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "formModels(weatherJSON:)"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "toggleWeather(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -6,7 +6,6 @@ target 'Forcast' do
   use_frameworks!
   pod 'Alamofire', '~> 4.4'
   pod 'SwiftyJSON'
-  pod 'RevealingSplashView'
   # Pods for Forcast
 
 end

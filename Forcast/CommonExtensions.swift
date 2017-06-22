@@ -21,19 +21,31 @@ extension Int {
         return "\(self)"
     }
     
-    func epochToDateString() -> String {
+    func epochToFullDateString() -> String {
         
         let d = Date(timeIntervalSince1970: TimeInterval(self))
-        return d.toString()
+        return d.toFullString()
+    }
+    func epochToLongDateString() -> String {
+        
+        let d = Date(timeIntervalSince1970: TimeInterval(self))
+        return d.toLongString()
     }
 }
 
 extension Date{
     
-    func toString() -> String
+    func toFullString() -> String
     {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .full
+        //dateFormatter.dateFormat = "dd-MM"
+        return dateFormatter.string(from: self)
+    }
+    
+    func toLongString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
         //dateFormatter.dateFormat = "dd-MM"
         return dateFormatter.string(from: self)
     }

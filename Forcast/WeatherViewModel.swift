@@ -19,7 +19,7 @@ class WeatherViewModel{
     convenience init(weather:Weather) {
         
         self.init()
-        self.dateLabel = weather.date.epochToDateString()
+        self.dateLabel = weather.date.epochToLongDateString()
         self.temperatureViewModel = TemperatureViewModel(temperature: weather.temperature)
         self.pressureLabel = weather.pressure.toString()! + " hPa"
         self.humidityLabel = weather.humidity.toString() + "%"

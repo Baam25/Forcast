@@ -24,6 +24,7 @@ class CurrentDayWeatherController: UIViewController {
     
     @IBOutlet weak var pressureLabel: UILabel!
     
+    
     let httpManager = HTTPManager.defaultManager
     
     override func viewDidLoad() {
@@ -56,6 +57,7 @@ class CurrentDayWeatherController: UIViewController {
             cityNameLabel.text = value.nameLabelText
             dayLabel.text = value.weatherView.dateLabel
             temperatureLabel.text = value.weatherView.temperatureViewModel.temperature_Label
+            currentWeather = value.weatherView.temperatureViewModel.temperature_Label
             highLowLabel.text = value.weatherView.temperatureViewModel.highLowLabel
             weatherDescriptionLabel.text = value.weatherView.descriptionLabel
             humidityLabel.text = value.weatherView.humidityLabel

@@ -24,6 +24,7 @@ class HTTPManager{
     }
     
     typealias WeatherHandler = (CityViewModel,Error?)->Void
+    typealias ForecastHandler = ([CityViewModel],Error?)->Void
     
     func fetchTodaysWeather(with Url:String, method: httpMethod, city:String, country:String, completionHandler:@escaping WeatherHandler){
             let wURL = URL(string: baseURL+Url)!
@@ -47,18 +48,27 @@ class HTTPManager{
         }
     }
     
-    func fetchFutureWeather(with Url:String, method: httpMethod, city:String, country:String){
+    func fetchFutureWeather(with Url:String, method: httpMethod, city:String, country:String,cnt:Int,completionHandler:@escaping ForecastHandler){
         
             let wURL = URL(string: baseURL+Url)!
             let params = [
                 "q":city+","+country,
                 "APPID":self.apiKey,
+                "cnt":cnt,
                 "units":"metric"
-            ]
+            ] as [String : Any]
             let hMethod = HTTPMethod(rawValue: method.description)!
         
             client.loadData(with: wURL, method: hMethod, parameters: params, encoding: URLEncoding.queryString , headers: nil) { (resultCompletion) in
-                //completionHandler(resultCompletion)
+                
+                if let error = resultCompletion.error {
+                    completionHandler([], error)
+                }
+                if let value = resultCompletion.value {
+                    self.json = JSON.init(value)
+                    let c = self.formForecastModels(weatherJSON: self.json)
+                    completionHandler(c, resultCompletion.error)
+                }
             }
 
     }
@@ -94,5 +104,23 @@ class HTTPManager{
         let tempModel = Temperature(temperature["temp"]!.doubleValue, nil, temp_min: temperature["temp_min"]!.doubleValue, temp_max: temperature["temp_max"]!.doubleValue)
         
         return (tempModel,TemperatureViewModel(temperature: tempModel))
+    }
+    
+    fileprivate func formForecastModels(weatherJSON:JSON) -> [CityViewModel]{
+        
+        let list = weatherJSON.dictionaryValue["list"]!.arrayValue
+        var cities = [CityViewModel]()
+        for value in list {
+            let tempDict = value.dictionaryValue["temp"]!.dictionaryValue
+            let temp = Temperature.init(nil, tempDict["day"]!.doubleValue, temp_min: tempDict["min"]!.doubleValue, temp_max: tempDict["max"]!.doubleValue)
+            //let tempViewModel = TemperatureViewModel(temperature: temp)
+            let weather = Weather(date: value["dt"].intValue, temperature: temp, pressure: value["pressure"].doubleValue, humidity: value["humidity"].intValue, description: value["weather"].arrayValue.first!.dictionaryValue["description"]!.stringValue)
+            //let weatherViewModel = WeatherViewModel(weather: weather)
+            let city = City(city: weatherJSON["city"].dictionaryValue["name"]!.stringValue, weather)
+            let cityViewModel = CityViewModel(city: city)
+            cities.append(cityViewModel)
+            
+        }
+        return cities
     }
 }
