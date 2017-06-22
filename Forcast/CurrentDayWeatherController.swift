@@ -24,9 +24,12 @@ class CurrentDayWeatherController: UIViewController {
     
     @IBOutlet weak var pressureLabel: UILabel!
     
+    let httpManager = HTTPManager.defaultManager
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        fetchTodaysWeather()
         // Do any additional setup after loading the view.
     }
 
@@ -35,7 +38,31 @@ class CurrentDayWeatherController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func fetchTodaysWeather() {
+        httpManager.fetchTodaysWeather(with: "/weather", method: .get, city: "Mumbai", country: "IN"){ (city, error) in
+            if error != nil {
+                //show error
+            }
+            else{
+                self.reloadView(wCity: city)
+            }
+        }
+    }
+    
+    func reloadView(wCity:CityViewModel?) {
+        
+        if let value = wCity {
+            
+            cityNameLabel.text = value.nameLabelText
+            dayLabel.text = value.weatherView.dateLabel
+            temperatureLabel.text = value.weatherView.temperatureViewModel.temperature_Label
+            highLowLabel.text = value.weatherView.temperatureViewModel.highLowLabel
+            weatherDescriptionLabel.text = value.weatherView.descriptionLabel
+            humidityLabel.text = value.weatherView.humidityLabel
+            pressureLabel.text = value.weatherView.pressureLabel
+        }
+        
+    }
     /*
     // MARK: - Navigation
 

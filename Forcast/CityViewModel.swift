@@ -16,7 +16,7 @@ class CityViewModel {
     convenience init(city:City) {
         self.init()
         
-        self.weatherView = WeatherViewModel()
+        self.weatherView = WeatherViewModel(weather: city.weather)
         self.nameLabelText = city.name.capitalized
     }
     

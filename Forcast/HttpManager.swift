@@ -29,7 +29,8 @@ class HTTPManager{
             let wURL = URL(string: baseURL+Url)!
             let params = [
                 "q":city+","+country,
-                "APPID":self.apiKey
+                "APPID":self.apiKey,
+                "units":"metric"
             ]
             let hMethod = HTTPMethod(rawValue: method.description)!
         
@@ -51,7 +52,8 @@ class HTTPManager{
             let wURL = URL(string: baseURL+Url)!
             let params = [
                 "q":city+","+country,
-                "APPID":self.apiKey
+                "APPID":self.apiKey,
+                "units":"metric"
             ]
             let hMethod = HTTPMethod(rawValue: method.description)!
         

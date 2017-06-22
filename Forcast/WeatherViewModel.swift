@@ -21,9 +21,9 @@ class WeatherViewModel{
         self.init()
         self.dateLabel = weather.date.epochToDateString()
         self.temperatureViewModel = TemperatureViewModel(temperature: weather.temperature)
-        self.pressureLabel = weather.pressure.toString()
-        self.humidityLabel = weather.humidity.toString()
-        self.descriptionLabel = weather.description
+        self.pressureLabel = weather.pressure.toString()! + " hPa"
+        self.humidityLabel = weather.humidity.toString() + "%"
+        self.descriptionLabel = weather.description.capitalized
     }
     init() {}
     

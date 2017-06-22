@@ -23,7 +23,18 @@ extension Int {
     
     func epochToDateString() -> String {
         
-        
-        return ""
+        let d = Date(timeIntervalSince1970: TimeInterval(self))
+        return d.toString()
+    }
+}
+
+extension Date{
+    
+    func toString() -> String
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .full
+        //dateFormatter.dateFormat = "dd-MM"
+        return dateFormatter.string(from: self)
     }
 }
